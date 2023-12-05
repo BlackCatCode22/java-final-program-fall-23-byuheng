@@ -5,53 +5,68 @@ package com.example.RestAPI.model.controller;
 import com.example.RestAPI.model.Product;
 import org.springframework.web.bind.annotation.*;
 
-// Annotation indicating that this class is a REST controller
+/* This controller class manages the Product API within the RestAPI application. The
+ProductAPIService controller class plays a vital role in managing and responding to various
+HTTP requests for this RestAPI application. */
+
+/* The RestController annotation indicating that this class is a REST controller. This provides a
+centralized entry point that controls and manages Web request handling. */
 @RestController
-// Base mapping for all endpoints in this controller with URL path
+
+/* RequestMapping annotation establishes a base mapping for all endpoints in this controller
+with the URL path /product. */
 @RequestMapping("/product")
+
 public class ProductAPIService {
 
-    // Instance variable to hold product details
+    /* The instance variable Product product; holds product details, acting as a temporary storage
+    within the controller. */
     Product product;
 
-    /*This Spring annotation handle GET requests to the "/product/{productId}" endpoint, where
-    {productId} is a placeholder for a specific product ID. The method takes the productId as a
-    path variable, and it returns the details of the product corresponding to that ID, or null
-    if the product details haven't been set or found.*/
+    /*There are four request method that will be implemented here */
+
+    /* GetMapping is a Spring annotation that handles GET requests to the "/product/{productId}" endpoint,
+    where {productId} is a placeholder for a specific product ID. The method takes the productId as a
+    path variable, and it returns the details of the product corresponding to that ID, or null if the
+    product details haven't been set or found. */
     @GetMapping("{productId}")
     public Product getProductAPIDetails(@PathVariable String productId) {
+
         return product;
 
     }
 
-    /*This method is a controller endpoint that handles HTTP POST requests to create or update
-      product details. It takes a Product object in the request body, assigns it to the
-      class-level product variable, and then returns a success message.*/
+    /* PostMapping method is a controller endpoint that handles HTTP POST requests to create or update
+    product details. It takes a Product object in the request body, assigns it to the class-level product
+    variable, and then returns a success message. */
     @PostMapping
     public String createProductDetails(@RequestBody Product product) {
+
         this.product = product;
-        // Return a success message
+
         return "Product Created Successfully";
 
     }
 
-    /*HTTP PUT handle requests to update product details. It takes a Product object in the request
-      body, assigns it to the class-level product variable, and then returns a success message.*/
+    /* PutMapping handles HTTP PUT requests to update product details. It takes a Product object in the
+    request body, assigns it to the class-level product variable, and then returns a success message. */
     @PutMapping
     public String updateProductDetails(@RequestBody Product product) {
+
         this.product = product;
-        // Return a success message
+
         return "Product Updated Successfully";
 
     }
 
-    /*This controller endpoint handles HTTP DELETE requests to delete product details. It takes a
-      productId as a path variable, sets the class-level product variable to null effectively simulating
-      the deletion of the product, and then returns a success message.*/
+    /* Lastly, DeleteMapping controller endpoint handles HTTP DELETE requests to delete product details.
+    It takes a productId as a path variable, sets the class-level product variable to null effectively
+    simulating the deletion of the product, and then returns a success message. */
     @DeleteMapping("{productId}")
     public String deleteProductDetails(@PathVariable String productId) {
+
         this.product = null;
-        // Return a success message
+
         return "Product Deleted Successfully";
 
     }
