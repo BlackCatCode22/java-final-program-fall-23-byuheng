@@ -1,9 +1,9 @@
-// Package declaration indicating the location of the class in the project structure
+    // Package declaration indicating the location of the class in the project structure
 package com.example.RestAPI.model;
 
-/* The Product class forms the backbone of this application, defining the structure
-and properties of a product. It's the blueprint for representing a product within
-the application. */
+    /* The Product class forms the backbone of this application, defining the structure
+    and properties of a product. It's the blueprint for representing a product within
+    the application. */
 public class Product {
 
     /* The core elements for this class has four fields.
@@ -13,14 +13,12 @@ public class Product {
     private String productPrice;
     private String productStock;
 
-    /* This class features two constructors. The default constructor is empty,
-    allowing the creation of instances with default values. */
+    /* This class features two constructors. The default constructor is empty */
     public Product() {
 
     }
 
-    /* The parameterized constructor initializes the fields with provided values,
-    facilitating efficient object creation. */
+    /* The other is a parameterized constructor. */
     public Product(String productId, String productName, String productPrice, String productStock) {
 
         this.productId = productId;
@@ -29,9 +27,7 @@ public class Product {
         this.productStock = productStock;
     }
 
-    /* For each attribute, getter and setter methods were generated. These methods
-    enable external classes to access and modify the private attributes, following
-    the principle of encapsulation. */
+    /* For each attribute, getter and setter methods were generated. */
     public String getProductId() {
 
         return productId;
